@@ -14,6 +14,7 @@ module.exports = function(homebridge) {
 function BHyveValve(log, config) {
 	this.log = log;
 	this.name = config["name"];
+	this.id = config["id"];
 	this.email = config["email"];
 	this.password = config["password"];
 	this.debug = config["debug"] || false;
@@ -121,7 +122,7 @@ BHyveValve.prototype = {
 					if (!err && response.statusCode == 200) {
 						body = JSON.parse(body);
 						body.forEach(function(result) {
-							if(result['type'] == "sprinkler_timer") {
+							if(result['type'] == "sprinkler_timer" && result['id'] == this.id) {
 								this.device = result['id'];
 								this.name = result['name'];
 								

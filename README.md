@@ -22,6 +22,7 @@ Add the below to the ```accesories``` section of your HomeBridge ```config.json`
 {
   "accessory": "OrbitBHyve",
   "name": "My B-Hyve Water Timer",
+  "id": "ID of Timer",
   "email": "your@email.com",
   "password": "yourSECUREpassword"
 }
